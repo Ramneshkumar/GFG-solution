@@ -1,0 +1,17 @@
+Node *removeDuplicates(Node *head)
+{
+    Node*temp = head;
+    while(temp->next != NULL)
+    {
+        if(temp->data == temp->next->data)
+        {
+            Node* farji = temp->next;
+            temp->next = temp->next->next;
+            free(farji);
+        }
+        else{
+            temp = temp->next;
+        }
+    }
+    return head;
+}

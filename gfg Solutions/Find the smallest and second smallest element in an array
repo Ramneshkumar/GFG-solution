@@ -1,0 +1,29 @@
+vector<int> minAnd2ndMin(int arr[], int n) {
+    vector<int>v;
+    int s1 = arr[0];
+    int s2 = INT_MAX;
+    
+    for(int i=0; i<n; i++)
+    {
+        if(arr[i] < s1)
+        {
+            s1 = arr[i];
+            s2 = INT_MAX;
+        }
+    }
+    for(int i=0; i<n; i++)
+    {
+        if (arr[i] < s2 && arr[i] > s1) 
+        { 
+            s2 = arr[i]; 
+        }
+    }
+    if(s2 == INT_MAX)
+    {
+        v.push_back(-1);
+    }
+    v.push_back(s1);
+    v.push_back(s2);
+    return v;
+    
+}

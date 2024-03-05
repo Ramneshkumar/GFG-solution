@@ -1,0 +1,23 @@
+class Solution{
+    public:
+    bool check(vector<ll> A, vector<ll> B, int N) {
+        unordered_map<int, int>mp;
+        for(int i=0; i<N; i++)
+        {
+            mp[A[i]]++;
+        }
+        for(int i=0 ; i<N; i++)
+        {
+            if(mp.find(B[i]) == mp.end() )
+            {
+                return false;
+            }
+            if(mp[B[i]] == 0)
+            {
+                return false;
+            }
+            mp[B[i]]--;
+        }
+        return 1;
+    }
+};
